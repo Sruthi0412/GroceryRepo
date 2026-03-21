@@ -2,19 +2,30 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-03-17T15:25:35 IST" name="Default suite" finished-at="2026-03-17T15:25:43 IST" duration-ms="7667">
+  <suite started-at="2026-03-21T10:01:53 IST" name="Default suite" finished-at="2026-03-21T10:02:01 IST" duration-ms="8462">
     <groups>
     </groups>
-    <test started-at="2026-03-17T15:25:35 IST" name="Default test" finished-at="2026-03-17T15:25:43 IST" duration-ms="7667">
+    <test started-at="2026-03-21T10:01:53 IST" name="Default test" finished-at="2026-03-21T10:02:01 IST" duration-ms="8462">
       <class name="testscripts.HomeTest">
-        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:testscripts.HomeTest@49e53c76]" started-at="2026-03-17T15:25:35 IST" name="browserLaunch" finished-at="2026-03-17T15:25:38 IST" duration-ms="3306" status="PASS">
+        <test-method is-config="true" signature="browserLaunch()[pri:0, instance:testscripts.HomeTest@35d019a3]" started-at="2026-03-21T10:01:53 IST" name="browserLaunch" finished-at="2026-03-21T10:01:57 IST" duration-ms="3793" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- browserLaunch -->
-        <test-method signature="verifyUserIsAbleToSuccessfullyLogOut()[pri:0, instance:testscripts.HomeTest@49e53c76]" started-at="2026-03-17T15:25:38 IST" name="verifyUserIsAbleToSuccessfullyLogOut" finished-at="2026-03-17T15:25:43 IST" duration-ms="4296" status="PASS">
+        <test-method signature="verifyUserIsAbleToSuccessfullyLogOut()[pri:0, instance:testscripts.HomeTest@35d019a3]" started-at="2026-03-21T10:01:57 IST" name="verifyUserIsAbleToSuccessfullyLogOut" finished-at="2026-03-21T10:02:01 IST" duration-ms="4602" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserIsAbleToSuccessfullyLogOut -->
+        <test-method is-config="true" signature="driverQuit(org.testng.ITestResult)[pri:0, instance:testscripts.HomeTest@35d019a3]" started-at="2026-03-21T10:02:01 IST" name="driverQuit" finished-at="2026-03-21T10:02:01 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=verifyUserIsAbleToSuccessfullyLogOut status=SUCCESS method=HomeTest.verifyUserIsAbleToSuccessfullyLogOut()[pri:0, instance:testscripts.HomeTest@35d019a3] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- driverQuit -->
       </class> <!-- testscripts.HomeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

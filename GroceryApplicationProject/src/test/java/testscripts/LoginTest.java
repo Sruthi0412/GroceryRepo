@@ -1,14 +1,15 @@
 package testscripts;
 
+
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import automationcore.TestNGBase;
+import automationcore.Base;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class LoginTest extends TestNGBase
+public class LoginTest extends Base
 {
 	
 	@Test

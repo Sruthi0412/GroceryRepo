@@ -1,15 +1,17 @@
 package testscripts;
 
+
+
 import java.io.IOException;
 
 import org.testng.annotations.Test;
 
-import automationcore.TestNGBase;
+import automationcore.Base;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class HomeTest extends TestNGBase
+public class HomeTest extends Base
 {
 	@Test
 	public void verifyUserIsAbleToSuccessfullyLogOut() throws IOException

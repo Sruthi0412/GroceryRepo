@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeMethod;
 
 import utilities.ScreenshotUtility;
 
-public class TestNGBase 
+public class Base 
 {
     public WebDriver driver;
 	
