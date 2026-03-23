@@ -1,7 +1,5 @@
 package testscripts;
 
-
-
 import java.io.IOException;
 
 import org.testng.annotations.Test;
@@ -13,7 +11,7 @@ import utilities.ExcelUtility;
 
 public class HomeTest extends Base
 {
-	@Test
+	@Test(description="Validating successful logout of user")
 	public void verifyUserIsAbleToSuccessfullyLogOut() throws IOException
 	{
 		 String userName=ExcelUtility.readStringData(0, 0, "LoginPage");

@@ -17,6 +17,7 @@ public class HomePage
 
 	@FindBy(xpath="//a[@class='nav-link']//parent::li[@class='nav-item dropdown']")WebElement adminIcon;
 	@FindBy(xpath="//a[@class='dropdown-item']//following::a[@class='dropdown-item']")WebElement logOutIcon;
+	@FindBy(xpath="//a[@href='https://groceryapp.uniqassosiates.com/admin/list-admin']//parent::a[@class='small-box-footer']")WebElement moreInfoIcon;
 	
 	
 	public void clickOnAdminProfileIcon()
@@ -28,7 +29,11 @@ public class HomePage
     {
     	logOutIcon.click();
     }
+    
+    public void clickOnMoreInfoAdminUsers()
+    {
+    	moreInfoIcon.click();
+    }
 }
 
 
-//a[@class='nav-link']//parent::li[@class='nav-item dropdown']
