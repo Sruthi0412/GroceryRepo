@@ -7,6 +7,7 @@
       <class name="testscripts.LoginTest"></class>
       <class name="testscripts.HomeTest"></class>
       <class name="testscripts.AdminUsersTest"></class>
+      <class name="testscripts.ManageNewsTest"></class>
      
     </classes>
   </test> <!-- Test -->

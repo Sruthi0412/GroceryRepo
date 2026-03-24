@@ -5,18 +5,14 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
-import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
+import pages.ManageNewsPage;
 import utilities.ExcelUtility;
-import utilities.FakerUtility;
 
-public class AdminUsersTest extends Base {
-	@Test(priority = 1, description = "Validating new user entry")
-	public void verifyWhetherUserIsAbleToAddANewUser() throws IOException {
-		FakerUtility faker = new FakerUtility();
-		String newUserName = faker.createRandomUserName();
-		String newPassword = faker.createRandomPassword();
+public class ManageNewsTest extends Base {
+	@Test(priority = 1, description = "Validating new News entry")
+	public void verifyWhetherUserIsAbleToAddANewNews() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
@@ -25,19 +21,16 @@ public class AdminUsersTest extends Base {
 		login.clickLoginButton();
 
 		HomePage home = new HomePage(driver);
-		home.clickOnMoreInfoAdminUsers();
+		home.clickOnMoreInfoNews();
 
-		AdminUsersPage admin = new AdminUsersPage(driver);
-		admin.clickOnNewIcon();
-		admin.enterNewUserNameOnUserNameField(newUserName);
-		admin.enterNewPasswordOnPasswordField(newPassword);
-		admin.clickOnUserTypeField();
-		admin.selectUserType();
-		admin.clickOnSaveIcon();
+		ManageNewsPage news = new ManageNewsPage(driver);
+		news.clickOnNewIcon();
+		news.enterNewNewsOnNewsField();
+		news.clickOnSaveButton();
 	}
 
-	@Test(priority = 2, description = "Validating user details search")
-	public void verifyWhetherUserIsAbleToSearchAnUser() throws IOException {
+	@Test(priority = 2, description = "Validating search news option")
+	public void verifyWhetherUserIsAbleToSearchANews() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
@@ -46,17 +39,16 @@ public class AdminUsersTest extends Base {
 		login.clickLoginButton();
 
 		HomePage home = new HomePage(driver);
-		home.clickOnMoreInfoAdminUsers();
+		home.clickOnMoreInfoNews();
 
-		AdminUsersPage admin = new AdminUsersPage(driver);
-		admin.clickOnSearchIcon();
-		admin.enterUserNameOnUserNameSearch();
-		admin.clickOnUserTypeSearch();
-		admin.selectUserCategory();
-		admin.clickOnSearchButton();
+		ManageNewsPage news = new ManageNewsPage(driver);
+		news.clickOnSearchIcon();
+		news.enterNewsOnNewsSearchField();
+		news.clickOnSearchButton();
+
 	}
 
-	@Test(priority = 3, description = "Validating reset users option")
+	@Test(priority = 3, description = "Validating reset news option")
 	public void verifyWhetherUserIsAbleToReset() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
@@ -66,9 +58,10 @@ public class AdminUsersTest extends Base {
 		login.clickLoginButton();
 
 		HomePage home = new HomePage(driver);
-		home.clickOnMoreInfoAdminUsers();
+		home.clickOnMoreInfoNews();
 
-		AdminUsersPage admin = new AdminUsersPage(driver);
-		admin.clickOnResetButton();
+		ManageNewsPage news = new ManageNewsPage(driver);
+		news.clickOnResetIcon();
 	}
+
 }
