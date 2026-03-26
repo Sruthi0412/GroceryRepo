@@ -2,9 +2,11 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constants.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
@@ -27,6 +29,9 @@ public class ManageNewsTest extends Base {
 		news.clickOnNewIcon();
 		news.enterNewNewsOnNewsField();
 		news.clickOnSaveButton();
+
+		boolean alertDisplay = news.isAlertDisplayed();
+		Assert.assertTrue(alertDisplay, Constant.NewsEntryError);
 	}
 
 	@Test(priority = 2, description = "Validating search news option")
@@ -46,9 +51,12 @@ public class ManageNewsTest extends Base {
 		news.enterNewsOnNewsSearchField();
 		news.clickOnSearchButton();
 
+		boolean searchNews = news.searchResult();
+		Assert.assertTrue(searchNews, Constant.NewsSearchError);
+
 	}
 
-	@Test(priority = 3, description = "Validating reset news option")
+	@Test(priority = 3, description = "Validating reset news option", retryAnalyzer = retrymechanism.Retry.class)
 	public void verifyWhetherUserIsAbleToReset() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
@@ -62,6 +70,10 @@ public class ManageNewsTest extends Base {
 
 		ManageNewsPage news = new ManageNewsPage(driver);
 		news.clickOnResetIcon();
+
+		boolean resetNews = news.resetList();
+		Assert.assertFalse(resetNews, Constant.NewsResetError);
+
 	}
 
 }

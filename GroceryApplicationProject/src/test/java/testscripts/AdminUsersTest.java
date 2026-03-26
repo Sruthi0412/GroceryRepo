@@ -2,9 +2,11 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constants.Constant;
 import pages.AdminUsersPage;
 import pages.HomePage;
 import pages.LoginPage;
@@ -34,6 +36,9 @@ public class AdminUsersTest extends Base {
 		admin.clickOnUserTypeField();
 		admin.selectUserType();
 		admin.clickOnSaveIcon();
+
+		boolean alertDisplay = admin.isAlertDisplayed();
+		Assert.assertTrue(alertDisplay, Constant.UserEntryError);
 	}
 
 	@Test(priority = 2, description = "Validating user details search")
@@ -54,6 +59,9 @@ public class AdminUsersTest extends Base {
 		admin.clickOnUserTypeSearch();
 		admin.selectUserCategory();
 		admin.clickOnSearchButton();
+
+		boolean usersList = admin.adminUsersList();
+		Assert.assertTrue(usersList, Constant.UserSearchError);
 	}
 
 	@Test(priority = 3, description = "Validating reset users option")
@@ -70,5 +78,8 @@ public class AdminUsersTest extends Base {
 
 		AdminUsersPage admin = new AdminUsersPage(driver);
 		admin.clickOnResetButton();
+
+		boolean resetList = admin.adminUsersList();
+		Assert.assertTrue(resetList, Constant.UserResetError);
 	}
 }

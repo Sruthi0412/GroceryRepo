@@ -2,9 +2,11 @@ package testscripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import automationcore.Base;
+import constants.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -22,6 +24,10 @@ public class HomeTest extends Base {
 		HomePage home = new HomePage(driver);
 		home.clickOnAdminProfileIcon();
 		home.clickOnLogOutIcon();
+		String actual = login.getPageText();
+		String expected = "7rmart supermarket";
+		Assert.assertEquals(actual, expected, Constant.UnsuccessfulLogoutError);
+
 	}
 
 }

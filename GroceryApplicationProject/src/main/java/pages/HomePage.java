@@ -22,6 +22,10 @@ public class HomePage {
 	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news']//parent::a[@class='small-box-footer']")
 	WebElement moreInfoNews;
 
+	// Assertion
+	@FindBy(xpath = "//b[text()='7rmart supermarket']")
+	WebElement pageText;
+
 	public void clickOnAdminProfileIcon() {
 		adminIcon.click();
 	}
@@ -37,4 +41,11 @@ public class HomePage {
 	public void clickOnMoreInfoNews() {
 		moreInfoNews.click();
 	}
+
+	// Assertion
+
+	public String getPageText() {
+		return pageText.getText();
+	}
+
 }

@@ -40,6 +40,12 @@ public class AdminUsersPage {
 	@FindBy(xpath = "//a[@class='btn btn-rounded btn-warning']")
 	WebElement ResetButton;
 
+	// Assertion
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement AlertMsg;
+	@FindBy(xpath = "//h4[text()='Admin Users']")
+	WebElement usersList;
+
 	// New User
 	public void clickOnNewIcon() {
 		newIcon.click();
@@ -93,5 +99,14 @@ public class AdminUsersPage {
 	// Reset
 	public void clickOnResetButton() {
 		ResetButton.click();
+	}
+
+	// Assertion
+	public boolean isAlertDisplayed() {
+		return AlertMsg.isDisplayed();
+	}
+
+	public boolean adminUsersList() {
+		return usersList.isDisplayed();
 	}
 }

@@ -17,7 +17,7 @@ import utilities.ScreenshotUtility;
 public class Base {
 	public WebDriver driver;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters("browsers")
 
 	public void browserLaunch(String browsers) throws Exception {
@@ -36,15 +36,15 @@ public class Base {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 
+	@AfterMethod(alwaysRun = true)
+	public void driverQuit(ITestResult iTestResult) throws IOException {
 
-	 @AfterMethod public void driverQuit(ITestResult iTestResult) throws
-	 IOException {
-	  
-	  if (iTestResult.getStatus() == ITestResult.FAILURE) {
-	 
-	 ScreenshotUtility screenShot = new ScreenshotUtility();
-	 screenShot.getScreenshot(driver, iTestResult.getName()); }
-	 //driver.quit();
-	 }
-	 
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+
+			ScreenshotUtility screenShot = new ScreenshotUtility();
+			screenShot.getScreenshot(driver, iTestResult.getName());
+		}
+		// driver.quit();
+	}
+
 }

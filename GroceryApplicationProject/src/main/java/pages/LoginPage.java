@@ -20,6 +20,12 @@ public class LoginPage {
 	@FindBy(xpath = "//button[text()='Sign In']")
 	WebElement loginButton;
 
+	// Assertion
+	@FindBy(xpath = "//p[text()='Dashboard']")
+	WebElement dashboard;
+	@FindBy(xpath = "//b[text()='7rmart supermarket']")
+	WebElement pageText;
+
 	public void enterUserNameOnUserNameField(String userName) {
 		userNameField.sendKeys(userName);
 	}
@@ -30,6 +36,15 @@ public class LoginPage {
 
 	public void clickLoginButton() {
 		loginButton.click();
+	}
+
+	// Assertion
+	public boolean isDashboardDisplayed() {
+		return dashboard.isDisplayed();
+	}
+
+	public String getPageText() {
+		return pageText.getText();
 	}
 
 }
