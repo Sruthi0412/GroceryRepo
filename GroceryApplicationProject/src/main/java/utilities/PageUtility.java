@@ -1,13 +1,12 @@
 package utilities;
 
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PageUtility {
-	
+
 	public void selectDropdownWithValue(WebElement element, String value) {
 
 		Select object = new Select(element);
@@ -26,18 +25,16 @@ public class PageUtility {
 		object.selectByIndex(index);
 	}
 
-	public void rightClickOnElement(WebDriver driver, WebElement element)
-	{
-		
-		Actions act= new Actions(driver);
+	public void rightClickOnElement(WebDriver driver, WebElement element) {
+
+		Actions act = new Actions(driver);
 		act.contextClick(element).build().perform();
 	}
-	
-	public void mouseHoverOnElement(WebDriver driver, WebElement element)
-	{
-		
-		Actions act= new Actions(driver);
+
+	public void mouseHoverOnElement(WebDriver driver, WebElement element) {
+
+		Actions act = new Actions(driver);
 		act.moveToElement(element).build().perform();
 	}
-	
+
 }

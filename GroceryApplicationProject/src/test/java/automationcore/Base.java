@@ -26,7 +26,7 @@ public class Base {
 	@Parameters("browsers")
 
 	public void browserLaunch(String browsers) throws Exception {
-		
+
 		prop = new Properties();
 		f = new FileInputStream(Constant.ConfigFile);
 		prop.load(f);

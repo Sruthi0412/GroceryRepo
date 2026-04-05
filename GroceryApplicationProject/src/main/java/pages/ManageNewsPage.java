@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.WaitUtility;
+
 public class ManageNewsPage {
 	public WebDriver driver;
+	WaitUtility wait= new WaitUtility();
 
 	public ManageNewsPage(WebDriver driver) {
 		this.driver = driver;
@@ -42,34 +45,43 @@ public class ManageNewsPage {
 	WebElement userNameField;
 
 	// New News
-	public void clickOnNewIcon() {
+	public ManageNewsPage clickOnNewIcon() {
+		wait.waitUntilElementToBeClickable(driver, newIcon);
 		newIcon.click();
+		return this;
 	}
 
-	public void enterNewNewsOnNewsField() {
-		newNewsField.sendKeys("Game of Thrones between Iran & US");
+	public ManageNewsPage enterNewNewsOnNewsField() {
+		newNewsField.sendKeys("Homecoming Festival");
+		return this;
 	}
 
-	public void clickOnSaveButton() {
+	public ManageNewsPage clickOnSaveButton() {
 		saveButton.click();
+		return this;
 	}
 
 	// Search News
-	public void clickOnSearchIcon() {
+	public ManageNewsPage clickOnSearchIcon() {
 		searchIcon.click();
+		return this;
 	}
 
-	public void enterNewsOnNewsSearchField() {
+	public ManageNewsPage enterNewsOnNewsSearchField() {
 		searchNewsField.sendKeys("Black Friday");
+		return this;
 	}
 
-	public void clickOnSearchButton() {
+	public ManageNewsPage clickOnSearchButton() {
 		searchButton.click();
+		return this;
 	}
 
 	// Reset
-	public void clickOnResetIcon() {
+	public ManageNewsPage clickOnResetIcon() {
+		wait.waitUntilElementToBeClickable(driver, resetIcon);
 		resetIcon.click();
+		return this;
 	}
 
 	// Assertion

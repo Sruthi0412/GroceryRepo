@@ -6,8 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+import utilities.WaitUtility;
+
 public class AdminUsersPage {
 	public WebDriver driver;
+	WaitUtility wait= new WaitUtility();
+	PageUtility page = new PageUtility();
 
 	public AdminUsersPage(WebDriver driver) {
 		this.driver = driver;
@@ -47,58 +52,73 @@ public class AdminUsersPage {
 	WebElement usersList;
 
 	// New User
-	public void clickOnNewIcon() {
+	public AdminUsersPage clickOnNewIcon() {
 		newIcon.click();
+		return this;
 	}
 
-	public void enterNewUserNameOnUserNameField(String newUserName) {
+	public AdminUsersPage enterNewUserNameOnUserNameField(String newUserName) {
 		userNameField.sendKeys(newUserName);
+		return this;
 	}
 
-	public void enterNewPasswordOnPasswordField(String newPassword) {
+	public AdminUsersPage enterNewPasswordOnPasswordField(String newPassword) {
 		passwordField.sendKeys(newPassword);
+		return this;
 	}
 
-	public void clickOnUserTypeField() {
+	public AdminUsersPage clickOnUserTypeField() {
 		userTypeIcon.click();
+		return this;
 	}
 
-	public void selectUserType() {
-		Select select = new Select(userTypeIcon);
-		select.selectByValue("staff");
+	public AdminUsersPage selectUserType() {
+		page.selectDropdownWithValue(userTypeIcon, "staff");
+		// Select select = new Select(userTypeIcon);
+		// select.selectByValue("staff");
 		userTypeIcon.click();
+		return this;
 	}
 
-	public void clickOnSaveIcon() {
+	public AdminUsersPage clickOnSaveIcon() {
 		saveIcon.click();
+		return this;
 	}
 
 	// Search
-	public void clickOnSearchIcon() {
+	public AdminUsersPage clickOnSearchIcon() {
+		wait.waitUntilElementToBeClickable(driver, searchIcon);
 		searchIcon.click();
+		return this;
 	}
 
-	public void enterUserNameOnUserNameSearch() {
+	public AdminUsersPage enterUserNameOnUserNameSearch() {
 		userNameIcon.sendKeys("Sruthi Sankar");
+		return this;
 	}
 
-	public void clickOnUserTypeSearch() {
+	public AdminUsersPage clickOnUserTypeSearch() {
 		userType.click();
+		return this;
 	}
 
-	public void selectUserCategory() {
-		Select select = new Select(userType);
-		select.selectByValue("staff");
+	public AdminUsersPage selectUserCategory() {
+		page.selectDropdownWithValue(userType, "staff");
+		// Select select = new Select(userType);
+		// select.selectByValue("staff");
 		userType.click();
+		return this;
 	}
 
-	public void clickOnSearchButton() {
+	public AdminUsersPage clickOnSearchButton() {
 		searchButton.click();
+		return this;
 	}
 
 	// Reset
-	public void clickOnResetButton() {
+	public AdminUsersPage clickOnResetButton() {
 		ResetButton.click();
+		return this;
 	}
 
 	// Assertion

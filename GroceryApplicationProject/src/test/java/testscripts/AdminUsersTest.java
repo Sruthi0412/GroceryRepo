@@ -14,6 +14,9 @@ import utilities.ExcelUtility;
 import utilities.FakerUtility;
 
 public class AdminUsersTest extends Base {
+
+	HomePage home;
+
 	@Test(priority = 1, description = "Validating new user entry")
 	public void verifyWhetherUserIsAbleToAddANewUser() throws IOException {
 		FakerUtility faker = new FakerUtility();
@@ -22,20 +25,15 @@ public class AdminUsersTest extends Base {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password);
+		home = login.clickLoginButton();
 
-		HomePage home = new HomePage(driver);
+		// HomePage home = new HomePage(driver);
 		home.clickOnMoreInfoAdminUsers();
 
 		AdminUsersPage admin = new AdminUsersPage(driver);
-		admin.clickOnNewIcon();
-		admin.enterNewUserNameOnUserNameField(newUserName);
-		admin.enterNewPasswordOnPasswordField(newPassword);
-		admin.clickOnUserTypeField();
-		admin.selectUserType();
-		admin.clickOnSaveIcon();
+		admin.clickOnNewIcon().enterNewUserNameOnUserNameField(newUserName).enterNewPasswordOnPasswordField(newPassword)
+				.clickOnUserTypeField().selectUserType().clickOnSaveIcon();
 
 		boolean alertDisplay = admin.isAlertDisplayed();
 		Assert.assertTrue(alertDisplay, Constant.UserEntryError);
@@ -46,19 +44,15 @@ public class AdminUsersTest extends Base {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password);
+		home = login.clickLoginButton();
 
-		HomePage home = new HomePage(driver);
+		// HomePage home = new HomePage(driver);
 		home.clickOnMoreInfoAdminUsers();
 
 		AdminUsersPage admin = new AdminUsersPage(driver);
-		admin.clickOnSearchIcon();
-		admin.enterUserNameOnUserNameSearch();
-		admin.clickOnUserTypeSearch();
-		admin.selectUserCategory();
-		admin.clickOnSearchButton();
+		admin.clickOnSearchIcon().enterUserNameOnUserNameSearch().clickOnUserTypeSearch().selectUserCategory()
+				.clickOnSearchButton();
 
 		boolean usersList = admin.adminUsersList();
 		Assert.assertTrue(usersList, Constant.UserSearchError);
@@ -69,11 +63,10 @@ public class AdminUsersTest extends Base {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password);
+		home = login.clickLoginButton();
 
-		HomePage home = new HomePage(driver);
+		// HomePage home = new HomePage(driver);
 		home.clickOnMoreInfoAdminUsers();
 
 		AdminUsersPage admin = new AdminUsersPage(driver);

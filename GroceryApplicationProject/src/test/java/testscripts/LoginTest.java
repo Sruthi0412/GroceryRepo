@@ -8,19 +8,21 @@ import org.testng.annotations.Test;
 
 import automationcore.Base;
 import constants.Constant;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
+
+	HomePage home;
 
 	@Test(priority = 1, description = "Validating user login with valid credentials", groups = { "smoke" })
 	public void verifyUserLoginWithValidCredentials() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password);
+		home = login.clickLoginButton();
 		boolean dashboardDisplay = login.isDashboardDisplayed();
 		Assert.assertTrue(dashboardDisplay, Constant.ValidCredsError);
 	}
@@ -30,9 +32,7 @@ public class LoginTest extends Base {
 		String userName = ExcelUtility.readStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password).clickLoginButton();
 		String actual = login.getPageText();
 		String expected = "7rmart supermarket";
 		Assert.assertEquals(actual, expected, Constant.InvalidUsernameError);
@@ -43,9 +43,7 @@ public class LoginTest extends Base {
 		String userName = ExcelUtility.readStringData(2, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(2, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password).clickLoginButton();
 		String actual = login.getPageText();
 		String expected = "7rmart supermarket";
 		Assert.assertEquals(actual, expected, Constant.InvalidPasswordError);
@@ -57,9 +55,7 @@ public class LoginTest extends Base {
 		// String userName = ExcelUtility.readStringData(3, 0, "LoginPage");
 		// String password = ExcelUtility.readStringData(3, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUserNameOnUserNameField(userName);
-		login.enterPasswordOnPasswordField(password);
-		login.clickLoginButton();
+		login.enterUserNameOnUserNameField(userName).enterPasswordOnPasswordField(password).clickLoginButton();
 		String actual = login.getPageText();
 		String expected = "7rmart supermarket";
 		Assert.assertEquals(actual, expected, Constant.InvalidCredsError);
@@ -69,8 +65,8 @@ public class LoginTest extends Base {
 	@DataProvider(name = "loginProvider")
 	public Object[][] getDataFromDataProvider() throws IOException {
 
-		return new Object[][] { //new Object[] { "admin", "admin22" }, new Object[] { "admin123", "123" },
-				 new Object[] {ExcelUtility.readStringData(4,0,"LoginPage"),ExcelUtility.readStringData(4,1 ,"LoginPage")}
-		};
+		return new Object[][] { // new Object[] { "admin", "admin22" }, new Object[] { "admin123", "123" },
+				new Object[] { ExcelUtility.readStringData(4, 0, "LoginPage"),
+						ExcelUtility.readStringData(4, 1, "LoginPage") } };
 	}
 }

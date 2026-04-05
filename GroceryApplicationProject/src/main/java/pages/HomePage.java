@@ -26,20 +26,24 @@ public class HomePage {
 	@FindBy(xpath = "//b[text()='7rmart supermarket']")
 	WebElement pageText;
 
-	public void clickOnAdminProfileIcon() {
+	public HomePage clickOnAdminProfileIcon() {
 		adminIcon.click();
+		return this;
 	}
 
-	public void clickOnLogOutIcon() {
+	public LoginPage clickOnLogOutIcon() {
 		logOutIcon.click();
+		return new LoginPage(driver);
 	}
 
-	public void clickOnMoreInfoAdminUsers() {
+	public AdminUsersPage clickOnMoreInfoAdminUsers() {
 		moreInfoIcon.click();
+		return new AdminUsersPage(driver);
 	}
 
-	public void clickOnMoreInfoNews() {
+	public ManageNewsPage clickOnMoreInfoNews() {
 		moreInfoNews.click();
+		return new ManageNewsPage(driver);
 	}
 
 	// Assertion
