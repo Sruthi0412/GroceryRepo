@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import constants.Constant;
 import utilities.PageUtility;
 import utilities.WaitUtility;
 
@@ -93,7 +94,7 @@ public class AdminUsersPage {
 	}
 
 	public AdminUsersPage enterUserNameOnUserNameSearch() {
-		userNameIcon.sendKeys("Sruthi Sankar");
+		userNameIcon.sendKeys(Constant.UserNameSearch);
 		return this;
 	}
 

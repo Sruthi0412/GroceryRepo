@@ -20,10 +20,17 @@ public class Constant {
 	public static final String UserEntryError = "New user entry has failed";
 	public static final String UserSearchError = "User search has failed";
 	public static final String UserResetError = "Users list reset has failed";
+	public static final String UserNameSearch = "Sruthi Sankar";
 
 	// Manage News
 	public static final String NewsEntryError = "New news entry has failed";
 	public static final String NewsSearchError = "News search has failed";
 	public static final String NewsResetError = "News reset has failed";
+	public static final String NewNewsEntry = "Homecoming Festival";
+	public static final String NewsSearch = "Black Friday";
+
+	// Wait Utility
+	public static final String text = "News";
+	public static final String title = "Admin Users";
 
 }
